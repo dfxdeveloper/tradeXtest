@@ -3,7 +3,7 @@ import { getCookie } from "../services/cookie";
 
 const axiosInstance = axios.create({
   baseURL:
-    /* process.env.REACT_APP_API_BASE_URL || */ "http://localhost:3001/api/v1/",
+    process.env.REACT_APP_API_BASE_URL || "http://localhost:3001/api/v1/",
   timeout: 45 * 1000,
   headers: {
     "Content-Type": "application/json",
