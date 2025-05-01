@@ -3,14 +3,14 @@ import React from "react";
 function NewsSearch() {
   return (
     <>
-      <section className="py-4 lg:py-20 lg:px-12 w-full">
+      <section className="py-4 lg:mt-12 lg:px-12 w-full">
         <div className="container mx-auto px-4 max-w-full text-center">
           <h1 className="text-white text-xl md:text-3xl lg:text-4xl xl:text-5xl font-gilroy font-bold mx-auto">
             Get the latest forex, crypto, and trading news with expert insights
             daily.
           </h1>
 
-          <p className="text-white md:text-2xl lg:text-3xl  font-gilroy font-regular py-12 md:mt-4">
+          <p className="text-white md:text-2xl lg:text-3xl  font-gilroy font-regular py-8 md:mt-4">
             Don't miss a trick with global real-time updates.
           </p>
         </div>

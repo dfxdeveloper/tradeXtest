@@ -6,25 +6,25 @@ import Equity from "../../assets/images/Equity_card.svg";
 
 const HeroSection = () => {
   return (
-    <div className="min-h-screen feature_hero_bg">
+    <div className="min-h-screen feature_hero_bg font-euclid">
       <div className="container mx-auto px-4 md:px-6 lg:px-12">
         {/* Hero Section */}
         <div className="relative min-h-[80vh] flex flex-col lg:flex-row items-center justify-between py-12 lg:py-20">
           {/* Left Content */}
-          <div className="w-full lg:w-1/2 text-left mb-8 lg:mb-0">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+          <div className="w-full lg:w-1/2 xl:w-2/5  text-left mb-8 lg:mb-0">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-6">
               Trade Smarter with Advanced Tools and Real-Time Insights
             </h1>
-            <p className="text-lg md:text-xl text-white mb-8 max-w-xl">
+            <p className="text-lg md:text-xl  font-regular text-white mb-8 max-w-xl">
               Explore cutting-edge tools, market insights, and learning
               resources designed to elevate your trading experience.
             </p>
-            <button className="bg-[#B039FF] hover:bg-purple-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30">
+            <button className="bg-[#B039FF] hover:bg-purple-700 text-white px-8 py-3 rounded-lg text-lg transition-all duration-300 hover:shadow-lg hovefont-regular r:shadow-purple-500/30">
               Learn More
             </button>
           </div>
 
-          <div className=" lg:w-1/2 md:w-96 w-72 flex justify-center items-center md:mt-8">
+          <div className=" lg:w-1/2 xl:w-3/4 2xl:w-3/4  md:w-1/2  w-1/2  flex justify-center items-center md:mt-8">
             <div className="relative w-full max-w-xl perspective-1000">
               {/* Purple glow effect underneath */}
               <div className="absolute inset-0 bg-purple-600/20 blur-[100px] rounded-full" />
@@ -53,7 +53,7 @@ const HeroSection = () => {
         </div>
 
         {/* Trading Insights Section */}
-        <div className="min-h-screen ">
+     {/*    <div className="min-h-screen ">
           <div className="container mx-auto md:px-6 ">
             <div className="text-center mb-12 lg:mt-96">
               <h1 className="text-4xl font-bold text-white mb-4">
@@ -66,7 +66,7 @@ const HeroSection = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 pb-12">
-              {/* Forex Card */}
+             
               <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-purple-800/20 rounded-2xl blur-xl transform group-hover:scale-105 transition-transform duration-300" />
                 <div className="relative bg-gradient-to-r from-[#321956] to-[#0E041B] p-3 rounded-2xl border border-purple-500/30 hover:border-purple-500 transition-all duration-300 ">
@@ -84,8 +84,7 @@ const HeroSection = () => {
                   </p>
                 </div>
               </div>
-
-              {/* Crypto Card */}
+             
               <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-purple-800/20 rounded-2xl blur-xl transform group-hover:scale-105 transition-transform duration-300" />
                 <div className="relative bg-gradient-to-r from-[#321956] to-[#0E041B] p-3 rounded-2xl border border-purple-500/30 hover:border-purple-500 transition-all duration-300">
@@ -104,7 +103,6 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Equity Card */}
               <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-purple-800/20 rounded-2xl blur-xl transform group-hover:scale-105 transition-transform duration-300" />
                 <div className="relative mb-0 bg-gradient-to-r from-[#321956] to-[#0E041B] p-3 rounded-2xl border border-purple-500/30 hover:border-purple-500 transition-all duration-300">
@@ -124,7 +122,7 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

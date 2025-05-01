@@ -27,13 +27,18 @@ const CommonSenseTrading = () => {
   ];
 
   return (
-    <div className="min-h-screen common_sense_bg text-white py-12 px-6">
+    <div className="min-h-screen common_sense_bg font-euclid text-white py-12 px-6">
       {/* Title and Description */}
       <div className="container">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-8 animate-fade-in">
+        <span className="inline-block font-euclid mb-5 font-medium bg-[linear-gradient(88.3deg,_rgba(255,_255,_255,_0.0581)_0%,_rgba(255,_255,_255,_0.0308)_99.66%)] text-md text-white px-6 py-2 rounded-full border border-white/10 shadow">
+            COMING SOON
+            </span>
+          <h1 className="text-4xl font-bold mb-3 animate-fade-in">
             Common Sense Trading
           </h1>
+          <div className="w-64 h-[3px] bg-[#B039FF] mx-auto my-3 rounded-full"></div>
+
           <p className="text-gray-300 px-8 animate-fade-in delay-150">
             Imagine trading with clarity and confidence, free from complex
             strategies and hard-to-follow techniques—that’s the essence of

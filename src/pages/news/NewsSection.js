@@ -295,7 +295,7 @@ function NewsSection() {
     if (!categoryNews?.length) return null;
 
     return (
-      <section className="py-8">
+      <section className="">
         <div className="container">
           <h1 className="text-white text-left text-xl md:text-3xl lg:text-3xl xl:text-4xl font-gilroy font-bold lg:w-3/5">
             {title}

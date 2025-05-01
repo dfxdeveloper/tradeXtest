@@ -5,11 +5,12 @@ import Image3 from "../../assets/images/hidden_image3.svg";
 
 const HiddenSignals = () => {
   return (
-    <div className="hidden_bg ">
-      <div className="container text-white py-4 px-4 min-h-screen">
+    <div className="hidden_bg font-euclid">
+      <div className="container text-white py-4 px-4">
         {/* Header */}
         <div className="mb-8 pt-10 lg:px-28">
-          <h1 className="text-4xl font-bold">Hidden Signals</h1>
+          <h1 className="text-4xl mb-2 font-bold">Hidden Signals</h1>
+          <div className="w-64 h-[3px] bg-[#B039FF] mb-2 rounded-full"></div>
           <p className="text-lg mt-4 max-w-4xl">
             What if you could spot trends before they fully unfold? With
             TradeXpert, you can uncover secret signals, giving you an edge in

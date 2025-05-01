@@ -15,6 +15,7 @@ const ConfirmOtp = lazy(() => import("./pages/home/ConfirmOtp"));
 const UserDashboard = lazy(() => import("./pages/dashboard/UserDashboard"));
 const Learning = lazy(() => import("./pages/learning_platform/Learning"));
 const Price = lazy(() => import("./pages/pricing/Price"));
+const BusinessPrice = lazy(() => import("./pages/pricing/business_pricing/BusinessPricing"));
 const PaymentForm = lazy(() => import("./pages/pricing/PaymentForm"));
 const News = lazy(() => import("./pages/news/News"));
 const FAQSection = lazy(() => import("./pages/faq/FAQSection"));
@@ -111,7 +112,8 @@ function Router() {
           <Route element={<ContactUs />} path="support"></Route>
         </Route>
         <Route element={<Learning />} path="/learning"></Route>
-        <Route element={<Price />} path="/pricing"></Route>
+        <Route element={<Price />} path="/pricing/individual"></Route>
+        <Route element={<BusinessPrice />} path="/pricing/business"></Route>
         <Route element={<PaymentForm />} path="/billing"></Route>
         <Route element={<Configuration />} path="/signup-configuration" />
         <Route element={<News />} path="/news" />

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef } from "react";
 
 const TradingViewChart = ({
   symbol = "",
@@ -10,7 +10,6 @@ const TradingViewChart = ({
   const widgetRef = useRef(null);
 
   useEffect(() => {
-    // Clean up any existing widget
     if (widgetRef.current) {
       try {
         widgetRef.current.remove();
@@ -20,7 +19,6 @@ const TradingViewChart = ({
       }
     }
 
-    // Make sure the TradingView widget library is loaded
     if (!document.getElementById("tradingview-widget-script")) {
       scriptRef.current = document.createElement("script");
       scriptRef.current.id = "tradingview-widget-script";
@@ -45,18 +43,16 @@ const TradingViewChart = ({
         interval: interval === "1h" ? "60" : interval,
         timezone: timezone,
         theme: "dark",
-        style: "1", // Candlestick style
+        style: "1",
         locale: "en",
         toolbar_bg: "#1E222D",
 
-        // Disable interactive features
         hide_top_toolbar: true,
         hide_side_toolbar: true,
         allow_symbol_change: false,
         hide_legend: false,
         save_image: false,
 
-        // Disable features that allow modification
         disabled_features: [
           "header_symbol_search",
           "header_resolutions",
@@ -106,7 +102,6 @@ const TradingViewChart = ({
       });
     }
 
-    // Clean up on unmount
     return () => {
       if (widgetRef.current) {
         try {
@@ -126,4 +121,4 @@ const TradingViewChart = ({
   );
 };
 
-export default TradingViewChart;
+export default memo(TradingViewChart);

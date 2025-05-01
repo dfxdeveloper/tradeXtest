@@ -9,19 +9,34 @@ import TradingStrategies from './TradingStategies'
 import HiddenSignals from './HiddenSignals'
 import RealTimeNews from './RealTimeNews'
 import CommonSenseTrading from './CommonSenseTrading'
+import StrategyBuilder from './StrategyBuilder'
+import MultiAssetSupport from './MultiAssetsSupport'
+import AlertsAndNotification from './AlertsAndNotification'
+import ChartAnalysis from './ChartAnalysis'
+import StrategyBacktesting from './StrategyBacktesting'
+import ExpertMarketplace from './ExpertMarketplace'
+import PremarketReport from './PremarketReport'
 
 function Feature() {
   return (
     <>
     <Header/>
     <HeroSection/>
-    <CandleStickType/>
+    <StrategyBuilder/>
+    <MultiAssetSupport/>
+    <AlertsAndNotification/>
+    <ChartAnalysis/>
+    <RealTimeNews/>
+    <StrategyBacktesting/>
+    <HiddenSignals/>
+    <ExpertMarketplace/>
+    <PremarketReport/>
+    <CommonSenseTrading/>
+
+  {/*   <CandleStickType/>
     <NeverMissUpdate/>
     <ChartPatterns/>
-    <TradingStrategies/>
-    <HiddenSignals/>
-    <RealTimeNews/>
-    <CommonSenseTrading/>
+    <TradingStrategies/> */}
     <Footer/>
     </>
   )

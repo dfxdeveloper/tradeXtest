@@ -1,62 +1,36 @@
-import { ArrowRight, BarChart2, Users, Award, ChartBar } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import AboutComp from "../../assets/images/about-comp-right-image.svg"; 
 
-function HeroSection() {
-  const [text, setText] = useState('usiness Efficiency');
-  const fullText = 'usiness Efficiency';
-  const typingSpeed = 150;
-  const pauseTime = 2000;
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    let timeout;
-
-    if (!isDeleting && text === fullText) {
-      timeout = setTimeout(() => {
-        setIsDeleting(true);
-      }, pauseTime);
-    } else if (isDeleting && text === '') {
-      timeout = setTimeout(() => {
-        setIsDeleting(false);
-      }, 500);
-    } else {
-      timeout = setTimeout(() => {
-        setText(currentText => {
-          if (isDeleting) {
-            return currentText.slice(0, -1);
-          } else {
-            return fullText.slice(0, currentText.length + 1);
-          }
-        });
-      }, typingSpeed);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [text, isDeleting]);
-
+const HeroSection = () => {
   return (
-    <div className="flex flex-col items-center about_hero  min-h-screen bg-gray-50 px-4" style={{marginBottom:"-25px"}}>
-      <div className="text-center lg:max-w-4xl max-w-2xl">
-        <h1 className="text-white font-bold mt-40 mb-6 text-xl md:text-3xl lg:text-5xl font-gilroy font-bold ">
-          <span className="whitespace-nowrap text-white ">Revolutionizing </span>
-          <span className="whitespace-nowrap">
-            B{text}
-          </span>
-        </h1>
-        
-        <p className="text-md md:text-2xl lg:text-3xl text-white mb-8 font-gilroy font-regular">
-          <span className="whitespace-nowrap">We offer smart, innovative</span>{' '}
-          <span className="whitespace-nowrap"> strategies designed to maximize growth</span>{' '}
-          <span className="whitespace-nowrap">and operational efficiency.</span>
-        </p>
+    <section className="min-h-screen about-main-bg font-euclid text-white flex px-6 pt-12 pb-6">
+      <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mx-auto">
+        <div className="text-left">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-8">
+            Welcome to the Future of <br />
+            <span className="text-white">Trading</span>
+          </h1>
+          <p className="text-white font-regular md:text-md max-w-xl mb-12">
+            TradeXpert.ai is your personal trading assistant, delivering high-precision
+            signals and real-time market intelligence. Our platform combines advanced AI
+            with no-code automation to ensure you never miss your next profitable trade
+            opportunity.
+          </p>
+          <button className="bg-gradient-to-r from-[#B039FF] to-[#A871FF] hover:opacity-90 text-white font-regular px-6 py-2 rounded-md text-sm  shadow-lg">
+            Learn More
+          </button>
+        </div>
 
-        <button  className="bg-[#B039FF] font-gilroy font-bold text-white px-8 py-3 rounded-full font-medium hover:bg-purple-700 transition-colors flex items-center justify-center mx-auto">
-          Learn More
-          <ArrowRight className="ml-2 w-5 h-5" />
-        </button>
+        <div className="flex justify-center lg:justify-end">
+          <img
+            src={AboutComp}
+            alt="Future of Trading"
+            className="w-full max-w-[540px] rounded-2xl shadow-2xl"
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default HeroSection;

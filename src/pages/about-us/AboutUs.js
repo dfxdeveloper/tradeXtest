@@ -7,6 +7,7 @@ import KeyFeatures from "../about-us/KeyFeatures";
 import JoinNow from "../about-us/JoinNow";
 import OurMission from "../about-us/OurMission";
 import WhoWeAre from "../about-us/WhoWeAre";
+import SignalHero from "./SignalHero";
 
 // Enhanced parallax hook with additional animation states
 const useParallax = (ref) => {
@@ -135,24 +136,19 @@ const AboutUs = () => {
     >
       <Header />
       <HeroSection />
-
-      <ParallaxSection className="bg-[#0E051B]" animationType="fade-up">
         <Discover />
-      </ParallaxSection>
 
-      <ParallaxSection className="bg-[#0E051B]" animationType="fade-up">
+      {/* <ParallaxSection className="bg-[#0E051B]" animationType="fade-up">
         <OurMission />
-      </ParallaxSection>
+      </ParallaxSection> */}
 
-      <ParallaxSection className="bg-[#0E051B]" animationType="fade-up">
+      {/* <ParallaxSection className="bg-[#0E051B]" animationType="fade-up">
         <KeyFeatures />
-      </ParallaxSection>
-
-      <ParallaxSection className="bg-[#0E051B]" animationType="fade-up">
+      </ParallaxSection> */}
         <WhoWeAre />
-      </ParallaxSection>
+  <SignalHero/>
 
-        <JoinNow />
+        {/* <JoinNow /> */}
   
 
       <Footer />

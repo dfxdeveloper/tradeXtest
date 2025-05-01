@@ -21,7 +21,7 @@ const PrivacyPolicy = () => {
           {/* Introduction */}
           <div className="mb-8">
             <h2 className="text-[#B039FF] text-xl md:text-2xl mb-4">
-            Welcome to TradExpert!
+            Welcome to Tradexpert!
             </h2>
             <p className="text-base md:text-lg opacity-90 leading-relaxed">
                We respect your privacy and are committed
@@ -30,7 +30,7 @@ const PrivacyPolicy = () => {
               using our app and website.
             </p>
             <p className="text-base md:text-lg opacity-90 leading-relaxed mt-4">
-              By using TradExpert, you agree to the terms outlined in this
+              By using Tradexpert, you agree to the terms outlined in this
               Privacy Policy.
             </p>
           </div>
@@ -180,7 +180,7 @@ const PrivacyPolicy = () => {
               6. Compliance Statement
             </h2>
             <p className="text-base md:text-lg opacity-90 leading-relaxed">
-              TradExpert does NOT provide trading, brokerage, or investment
+              Tradexpert does NOT provide trading, brokerage, or investment
               advisory services. We are an informational and educational
               platform for AI-powered market intelligence.
             </p>

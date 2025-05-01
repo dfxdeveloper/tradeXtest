@@ -187,14 +187,14 @@ function Footer() {
                   News
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to="/hidden-insights"
                   className="hover:text-purple-400 transition-colors"
                 >
                   Hidden Insights
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   to="/features"

@@ -45,6 +45,11 @@ export const debounce = (func, delay = 1000) => {
     timer = setTimeout(() => func(...args), delay);
   };
 };
+export const formatInputDateTimeLocal = (date = new Date()) => {
+  const offset = date.getTimezoneOffset();
+  date = new Date(date.getTime() - offset * 60 * 1000);
+  return date.toISOString().split("."[0]).slice(0, -1);
+};
 
 export const formatDate = (timestamp) => {
   const date = timestamp ? new Date(timestamp) : new Date();
