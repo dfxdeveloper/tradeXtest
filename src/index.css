@@ -1,0 +1,504 @@
+/* Tailwind CSS Imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+     .animate-slide-right {
+       animation: slideRight 15s linear infinite;
+     }
+     .animate-slide-left {
+       animation: slideLeft 15s linear infinite;
+     }
+     @keyframes slideRight {
+     0% { transform: translateX(0); }
+       100% { transform: translateX(100%); }
+    }
+   @keyframes slideLeft {
+       0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+   }
+@font-face {
+  font-family: "Gilroy";
+  src: url("../src/fonts/Gilroy-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../src/fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../src/fonts/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../src/fonts/Gilroy-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../src/fonts/Gilroy-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: "Euclid";
+  src: url("../src/fonts/Euclid-Circular-A-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Euclid";
+  src: url("../src/fonts/Euclid-Circular-A-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: "Euclid";
+  src: url("../src/fonts/Euclid-Circular-A-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Euclid";
+  src: url("../src/fonts/Euclid-Circular-A-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Euclid";
+  src: url("../src/fonts/Euclid-Circular-A-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Euclid";
+  src: url("../src/fonts/Euclid-Circular-A-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../src/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+.slick-dots li button:before {
+  color: white !important;
+}
+.slick-dots li.slick-active button:before {
+  color: rgb(255, 255, 255) !important;
+}
+.herosection-bg-img {
+  background-image: url(../src/assets/images/Hersection-bg-img.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.price_bg {
+  background-image: url(../src/assets/images/price_bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about_discover {
+  background-image: url(../src/assets/images/aboutdiscover.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/*   .trade-smart{
+    background-image: url(../src/assets/images/RealTimeTrade.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+  } */
+.tradingSignals-bg-img {
+  background-image: url(../src/assets/images/Section.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.strategy-builder-bg {
+  background-image: url(../src/assets/images/strategy_builder.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.real-alerts-bg {
+  background-image: url(../src/assets/images/alerts-bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.news-section-bg {
+  background-image: url(../src/assets/images/News-bg-img.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.mdl-bg {
+  background-image: url(../src/assets/images/mdl_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.quantumedge_bg {
+  background-image: url("./assets/images/QuantumEdge_bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.chartpattern_bg {
+  background-image: url("./assets/images/ChartPattern_bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bg-custom-strategy{
+  background-image: url("./assets/images/strategy-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.chartpatterncard_bg {
+  background-image: url("./assets/images/ChartPattern_card.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.dashboard_bg{
+  background-image: url("./assets/images/db_bg.png");
+  background-position: inherit;
+  background-repeat: no-repeat;
+}
+.tradingstrategies_bg {
+  background-image: url("./assets/images/TradingStrategies_bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.tradingstrategies_card {
+  background-image: url("./assets/images/TradingStrategies_card.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hidden_bg {
+  background-image: url("./assets/images/Hidden_bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.Hiddenleft_bg {
+  background-image: url("./assets/images/Left_card.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.faq_bg {
+  background-image: url("./assets/images/faq_frame.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.consult_schedule_bg {
+  background-image: url("./assets/images/bottom_bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.sentiment_bg {
+  background-image: url("./assets/images/sentiment-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.Hiddenright_bg {
+  background-image: url("./assets/images/Right_card.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.Real_Time_News {
+  background-image: url("./assets/images/Real_Time_News.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.common_sense_bg {
+  background-image: url("./assets/images/common-sense-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about_mission {
+  background-image: url("./assets/images/aboutmission.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.about_keyfeatures {
+  background-image: url("./assets/images/aboutkeyfeatures.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about_whoweare {
+  background-image: url("./assets/images/about_whoweare.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about_cardbg {
+  background-image: url("./assets/images/aboout_cardbg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about_joinnow {
+  background-image: url("./assets/images/about_joinnow.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.feature_hero_bg {
+  background-image: url("./assets/images/feature_hero_bg.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.candlestick_bg {
+  background-image: url("./assets/images/candlestick_bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.privacy_bg {
+  background-image: url("./assets/images/privacy_bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pricing_bg {
+  background-image: url("./assets/images/pricing_bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.next_gen_bg {
+  background-image: url("./assets/images/next_gen_bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.enterprise_pricing_bg {
+  background-image: url("./assets/images/enterprise_pricing.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.candle_cards-bg {
+  background-image: url("./assets/images/candle_cards_bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about_hero {
+  background-image: url("./assets/images/abouthero.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 45rem;
+}
+.planbg {
+  background-image: url("./assets/images/planbg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.sidebar_bg {
+  background-image: url("./assets/images/sidebarbg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.blur_card {
+  backdrop-filter: blur(13px) saturate(168%);
+  -webkit-backdrop-filter: blur(13px) saturate(168%);
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 40px;
+  border: 1px solid rgba(178, 102, 255, 1);
+}
+.button_blur {
+  backdrop-filter: blur(13px) saturate(168%);
+  -webkit-backdrop-filter: blur(13px) saturate(168%);
+  background-color: rgba(255, 255, 255, 0.14);
+}
+.grayscale-effect {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-in-out;
+  cursor: pointer;
+}
+.grayscale-effect:hover {
+  filter: grayscale(0%);
+}
+.bg_why_invest {
+  background-image: url("./assets/images/why_invest.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* height: 700px; */
+}
+.leftside {
+  border-right: 2px solid #4b3de0;
+  border-top: 2px solid #4b3de0;
+  border-radius: 0px 10px;
+  width: 130px;
+  height: 163px;
+  top: 130px;
+  position: absolute;
+  right: -128px;
+}
+
+.leftside img {
+  position: absolute;
+  right: -14px;
+  bottom: -10px;
+  width: 25px;
+}
+
+.bottomleftside {
+  border-right: 2px solid #4b3de0;
+  border-bottom: 2px solid #4b3de0;
+  border-radius: 10px 0px;
+  width: 130px;
+  height: 163px;
+  top: 0px;
+  position: absolute;
+  right: -128px;
+}
+
+.bottomleftside img {
+  position: absolute;
+  right: -14px;
+  top: -5px;
+  width: 25px;
+}
+
+.rightside {
+  border-left: 2px solid #4b3de0;
+  border-top: 2px solid #4b3de0;
+  border-radius: 10px 0px;
+  width: 130px;
+  height: 163px;
+  top: 130px;
+  position: absolute;
+  left: -128px;
+}
+
+.rightside img {
+  position: absolute;
+  left: -14px;
+  bottom: -10px;
+  width: 25px;
+}
+
+.rightbottomside {
+  border-left: 2px solid #4b3de0;
+  border-bottom: 2px solid #4b3de0;
+  border-radius: 0px 10px;
+  width: 130px;
+  height: 163px;
+  top: 0px;
+  position: absolute;
+  left: -128px;
+}
+
+.rightbottomside img {
+  position: absolute;
+  left: -14px;
+  top: -10px;
+  width: 25px;
+}
+
+@media (max-width: 1024px) {
+  .rightbottomside,
+  .rightside,
+  .bottomleftside,
+  .leftside {
+    display: none;
+  }
+}
+.footer_text {
+  font-family: "GILROY";
+  font-weight: 400;
+}
+.footer_italictext {
+  font-family: "GILROY", cursive;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+.PhoneInput {
+  gap: 0.5rem;
+}
+
+.PhoneInputInput {
+  background-color: #1a1625 !important;
+  border: 1px solid #6a11cb !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+  color: white !important;
+}
+
+.PhoneInputCountry {
+  background-color: #1a1625;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #6a11cb;
+  color: white;
+}
+
+.PhoneInputCountrySelect {
+  background-color: #1a1625 !important;
+}
+
+.black-text-white-background .PhoneInputInput {
+  background-color: white !important;
+  color: #1a1625 !important;
+}
+
+.black-text-white-background .PhoneInputCountry {
+  background-color: white !important;
+  color: #1a1625 !important;
+}
+
+.black-text-white-background .PhoneInputCountrySelect {
+  background-color: white !important;
+  color: #1a1625 !important;
+}
+
+.PhoneInputCountryIcon {
+  margin-right: 0.5rem;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

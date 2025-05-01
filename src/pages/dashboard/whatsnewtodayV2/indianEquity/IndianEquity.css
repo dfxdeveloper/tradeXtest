@@ -1,0 +1,17 @@
+
+@media only screen and (max-width: 376px) {
+    .centric_res {
+        right: 90px !important;
+      }
+      .bottom-line {
+        width: 180px !important;
+      }
+  }
+  @media only screen and (max-width: 321px) {
+    .centric_res {
+        right: 60px !important;
+      }
+      .bottom-line {
+        width: 125px !important;
+      }
+  }

@@ -1,0 +1,23 @@
+.dropdown-container {
+    position: relative;
+  }
+  
+  .dropdown-container .dropdown {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-container .dropdown option {
+    padding: 10px;
+  }
+  
+  .dropdown-container .dropdown option:nth-child(n+4) {
+    display: none;
+  }
+  
+  .dropdown-container .dropdown:focus option:nth-child(n+4) {
+    display: block;
+  }
+  

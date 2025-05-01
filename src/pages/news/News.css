@@ -1,0 +1,5 @@
+.bg-news{
+    background-image: url("../../assets/images/News_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
