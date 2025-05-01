@@ -1,6 +1,7 @@
-import react from "react";
+import React from "react";
 
-import AiIcon from "../../../../assets/images/ai_icon.svg"
+import AiIcon from "../../../../assets/images/ai_icon.svg";
+
 function NewsCard({
   image,
   title,
@@ -11,36 +12,44 @@ function NewsCard({
   sentimentPercentage,
 }) {
   return (
-    <div className="bg-[#220C39] border border-[#48387B] rounded-lg p-4 flex justify-between items-center">
-      <div className="flex">
+    <div className="bg-[#220C39] border border-[#48387B] rounded-lg p-3 sm:p-4 flex flex-col sm:flex-row justify-between">
+      <div className="flex flex-col sm:flex-row">
         <img
           src={image}
           alt="News thumbnail"
-          className="w-20 h-20 rounded object-cover mr-4"
+          className="w-full h-40 sm:w-20 sm:h-20 rounded object-cover mb-3 sm:mb-0 sm:mr-4"
         />
         <div className="flex flex-col justify-between">
           <div className="flex items-center">
-            <span className="text-xs font-gilroy font-regular text-white">{time}</span>
+            <span className="text-xs font-gilroy font-regular text-white">
+              {time}
+            </span>
             {isLive ? (
               <span className="ml-2 px-2 py-0.5 bg-red-600 text-white text-xs rounded flex items-center">
                 <span className="h-2 w-2 bg-white rounded-full mr-1"></span>
                 LIVE
               </span>
             ) : (
-              <span className="ml-2 font-gilroy font-regular text-xs text-white">| {timestamp}</span>
+              <span className="ml-2 font-gilroy font-regular text-xs text-white">
+                | {timestamp}
+              </span>
             )}
           </div>
-          <p className="text-sm font-gilroy font-medium w-72 mt-5 mb-1">{title}</p>
+          <p className="text-sm font-gilroy font-medium w-full sm:w-72 mt-3 sm:mt-5 mb-3 sm:mb-1">
+            {title}
+          </p>
         </div>
       </div>
-      <div className="flex flex-col items-end">
+      <div className="flex flex-row sm:flex-col justify-between sm:items-end">
         <div className="flex items-center mb-1">
-          <span className="text-lg font-bold font-gilroy text-[#0FEDBE]">
+          <span className="text-base sm:text-lg font-bold font-gilroy text-[#0FEDBE]">
             {sentimentPercentage}%
           </span>
-          <span className="ml-2 text-xs font-gilroy text-[#0FEDBE]">{sentiment}</span>
+          <span className="ml-2 text-xs font-gilroy text-[#0FEDBE]">
+            {sentiment}
+          </span>
         </div>
-        <button className="text-sm bg-transparent hover:text-teal-400 transition-colors mt-2 px-2">
+        <button className="text-sm bg-transparent hover:text-teal-400 transition-colors px-2">
           View
         </button>
       </div>
@@ -48,7 +57,8 @@ function NewsCard({
   );
 }
 
-const Image = "https://placehold.co/600x400"
+const Image = "https://placehold.co/600x400";
+
 function NewsPulse() {
   const newsItems = [
     {
@@ -114,26 +124,26 @@ function NewsPulse() {
   ];
 
   return (
-    <div className="text-white p-2 md:p-4 lg:p-6 shadow-xl w-full">
+    <div className="text-white p-2 sm:p-4 lg:p-0 xl:p-0 2xl:p-0 pb-10 lg:px-6 xl:px-6 2xl:px-6 w-full">
       <div
-        className="border border-gray-700 mt-2 rounded-xl p-2 sm:p-3 md:p-6 shadow-xl backdrop-blur-3xl"
+        className="border border-gray-700 mt-2 lg:mb-6 xl:mb-6 rounded-xl p-2 sm:p-3 md:p-6 shadow-xl backdrop-blur-3xl"
         style={{
           background:
             "linear-gradient(88.3deg, rgba(255, 255, 255, 0.0664) 0%, rgba(255, 255, 255, 0.0352) 99.66%)",
         }}
       >
-        <div className="flex items-center mb-4 md:mb-6 w-full max-w-xs rounded-full border border-gray-700 backdrop-blur-3xl space-x-2 px-2 py-0.5">
+        <div className="flex items-center mb-4 w-full max-w-xs rounded-full border border-gray-700 backdrop-blur-3xl space-x-2 px-2 py-0.5">
           <img
-            className="p-1 rounded-full h-6 w-6 sm:h-8 sm:w-8 md:h-12 md:w-12"
+            className="p-1 rounded-full h-8 w-8 sm:h-9 sm:w-9"
             src={AiIcon}
             alt="AI Icon"
           />
-          <h2 className="text-xs sm:text-sm md:text-xl font-gilroy font-semibold truncate">
+          <h2 className="text-lg sm:text-xl font-euclid font-semibold truncate">
             News Pulse
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 md:grid-cols-1 lg:grid-cols-1 gap-3 sm:gap-4">
           {newsItems.map((item, index) => (
             <NewsCard key={index} {...item} />
           ))}

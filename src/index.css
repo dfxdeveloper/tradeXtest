@@ -3,22 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-     .animate-slide-right {
-       animation: slideRight 15s linear infinite;
-     }
-     .animate-slide-left {
-       animation: slideLeft 15s linear infinite;
-     }
-     @keyframes slideRight {
-     0% { transform: translateX(0); }
-       100% { transform: translateX(100%); }
-    }
-   @keyframes slideLeft {
-       0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-  }
-   }
 @font-face {
   font-family: "Gilroy";
   src: url("../src/fonts/Gilroy-Light.ttf") format("truetype");
@@ -62,37 +46,30 @@
   font-weight: 300;
   font-style: normal;
 }
-@font-face {
-  font-family: "Euclid";
-  src: url("../src/fonts/Euclid-Circular-A-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-}
-
 
 @font-face {
-  font-family: "Euclid";
+  font-family: "Gilroy";
   src: url("../src/fonts/Euclid-Circular-A-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Euclid";
+  font-family: "Gilroy";
   src: url("../src/fonts/Euclid-Circular-A-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Euclid";
+  font-family: "Gilroy";
   src: url("../src/fonts/Euclid-Circular-A-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Euclid";
+  font-family: "Gilroy";
   src: url("../src/fonts/Euclid-Circular-A-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
@@ -116,12 +93,6 @@
   background-repeat: no-repeat;
 }
 
-.price_bg {
-  background-image: url(../src/assets/images/price_bg.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .about_discover {
   background-image: url(../src/assets/images/aboutdiscover.svg);
   background-size: cover;
@@ -137,17 +108,6 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-.strategy-builder-bg {
-  background-image: url(../src/assets/images/strategy_builder.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.real-alerts-bg {
-  background-image: url(../src/assets/images/alerts-bg.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .news-section-bg {
   background-image: url(../src/assets/images/News-bg-img.webp);
   background-size: cover;
@@ -209,17 +169,6 @@
 }
 .Hiddenleft_bg {
   background-image: url("./assets/images/Left_card.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.faq_bg {
-  background-image: url("./assets/images/faq_frame.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.consult_schedule_bg {
-  background-image: url("./assets/images/bottom_bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -295,17 +244,6 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-.next_gen_bg {
-  background-image: url("./assets/images/next_gen_bg.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.enterprise_pricing_bg {
-  background-image: url("./assets/images/enterprise_pricing.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 
 .candle_cards-bg {
   background-image: url("./assets/images/candle_cards_bg.png");

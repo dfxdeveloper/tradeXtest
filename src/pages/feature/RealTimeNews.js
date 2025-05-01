@@ -3,7 +3,7 @@ import RealTime from "../../assets/images/RealTimeNews.svg";
 import Globe from "../../assets/images/globe_icon.svg";
 const RealTimeNews = () => {
   return (
-    <div className="Real_Time_News m-0 text-white min-h-screen font-euclid gap-12 md:gap-24 p-8 flex flex-col md:flex-row relative bg-purple-900">
+    <div className="Real_Time_News m-0 text-white min-h-screen gap-12 md:gap-24 p-8 flex flex-col md:flex-row relative bg-purple-900">
       {/* Left Section */}
       <div className="md:w-1/2 flex flex-col justify-center">
         <h1 className="text-4xl px-2 font-bold mb-6 leading-tight">

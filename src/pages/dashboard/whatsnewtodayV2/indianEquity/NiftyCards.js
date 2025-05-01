@@ -10,19 +10,19 @@ const cardData = [
 
 function NiftyCards() {
   return (
-    <div className="w-full px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-2">
+    <div className="w-full  md:p-4 p-2 pt-5 lg:px-6 xl:px-6 2xl:px-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
         {cardData.map((card, index) => (
           <div
             key={index}
-            className="w-full h-[160px] rounded-xl px-5 py-4 shadow-md border border-gray-700 flex flex-col"
+            className="w-full h-[140px] rounded-xl px-5 py-4 shadow-md border border-gray-700 flex flex-col"
           >
-            <h3 className="text-white font-gilroy font-medium">{card.index}</h3>
-            <p className={`text-sm font-semibold font-gilroy mt-1 ${card.color}`}>{card.change}</p>
+            <h3 className="text-white font-euclid font-medium">{card.index}</h3>
+            <p className={`text-sm font-semibold font-euclid mt-1 ${card.color}`}>{card.change}</p>
             <p className="text-[#2575FC] text-xl font-semibold mt-2">{card.value}</p>
 
             
-            <div className="mt-auto pt-4">
+            <div className=" pt-4">
               <div className="relative w-full h-[6px] bg-[#D9D9D9] rounded-full overflow-hidden">
                 <div
                   className="absolute top-0 left-0 h-full bg-[#2575FC]"

@@ -85,7 +85,6 @@ function UpcomingEvents() {
     ]
   };
 
-  // Define tag colors based on type
   const getTagColor = (type) => {
     switch (type) {
       case 'Dividend':
@@ -102,42 +101,40 @@ function UpcomingEvents() {
   };
 
   return (
-    <div className="text-white p-2 md:p-4 lg:px-6 w-full">
+    <div className="text-white lg:p-0 xl:p-0 2xl:p-0 md:p-4 p-2 pb-10 lg:px-6 xl:px-6 2xl:px-6 w-full">
       <div
-        className="border border-gray-700 mt-2 rounded-xl p-2 sm:p-3 md:p-6 shadow-xl backdrop-blur-3xl"
+        className="border border-gray-700 mt-2 lg:mt-6 rounded-xl p-2 sm:p-3 md:p-6 shadow-xl backdrop-blur-3xl"
         style={{
           background:
             "linear-gradient(88.3deg, rgba(255, 255, 255, 0.0664) 0%, rgba(255, 255, 255, 0.0352) 99.66%)",
         }}
       >
-        <div className="flex items-center mb-4 md:mb-6 w-full sm:w-3/4 md:w-1/2 lg:w-2/5 xl:w-1/3 2xl:w-1/4 rounded-full border border-gray-700 backdrop-blur-3xl space-x-2 px-2 py-0.5">
-          <svg className="p-1 rounded-full h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-purple-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div className="flex items-center mb-4 md:mb-4 w-full max-w-xs rounded-full border border-gray-700 backdrop-blur-3xl space-x-2 px-2 py-0.5">
+          <svg className="p-1 rounded-full h-9 w-9 text-purple-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 10V7C20 5.9 19.1 5 18 5H6C4.9 5 4 5.9 4 7V10M20 10V19C20 20.1 19.1 21 18 21H6C4.9 21 4 20.1 4 19V10M20 10H4M8 3V7M16 3V7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
             <rect x="6" y="12" width="3" height="3" rx="0.5" fill="currentColor"/>
             <rect x="10.5" y="12" width="3" height="3" rx="0.5" fill="currentColor"/>
             <rect x="15" y="12" width="3" height="3" rx="0.5" fill="currentColor"/>
           </svg>
-          <h2 className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg 2xl:text-lg font-euclid font-semibold truncate">
+          <h2 className="text-lg font-euclid font-semibold truncate">
             Upcoming Events
           </h2>
         </div>
-        
-        {/* Tab navigation with full-width bg but individual tab width */}
         <div className="bg-[#1A0E30] lg:-mx-6 md:-mx-6 xl:-mx-6 2xl:-mx-6 -mx-2 mb-4 md:mb-6">
-          <div className="flex px-6 overflow-x-auto">
+          <div className="flex px-6 overflow-x-auto hide-scrollbar">
             {Object.keys(data).map(tab => (
               <button 
                 key={tab}
                 className={`px-2 py-2 font-euclid text-center text-xs md:text-sm lg:text-base whitespace-nowrap transition-colors duration-200 relative xl:mr-48 2xl:mr-48 md: ${
                   activeTab === tab 
-                    ? 'text-white font-semibold' 
-                    : 'text-gray-400 hover:text-gray-300 font-regular'
+                    ? 'text-[#D5AFFF] font-semibold' 
+                    : 'text-[#A3A3A3] hover:text-gray-300 font-regular'
                 }`}
                 onClick={() => setActiveTab(tab)}
               >
                 {tab}
                 {activeTab === tab && (
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500 w-full"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#2575FC] rounded-full w-full"></div>
                 )}
               </button>
             ))}
@@ -151,7 +148,7 @@ function UpcomingEvents() {
                 <div className="flex flex-row items-center justify-between">
                   <div className="flex items-center">
                     <h2 className="text-base md:text-lg font-medium font-euclid text-[#D595FF] mr-2">{item.company}</h2>
-                    <span className="bg-cyan-500 text-xs text-white font-euclid px-2 py-1 rounded-full">
+                    <span className={`${getTagColor(item.type)} text-xs text-white font-euclid px-2 py-1 rounded-full`}>
                       {item.type}
                     </span>
                   </div>
@@ -167,6 +164,15 @@ function UpcomingEvents() {
           ))}
         </div>
       </div>
+      <style jsx global>{`
+          .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+          }
+          .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+        `}</style>
     </div>
   );
 }

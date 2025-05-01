@@ -5,16 +5,6 @@ import Statistical from "../assets/images/Statistical.svg";
 import MomentumBased from "../assets/images/Time-based.svg";
 import CombinedSignals from "../assets/images/Combined_Signals.svg";
 
-import crossing from "../assets/icons/crossing.svg";
-import crossingUp from "../assets/icons/crossing_up.svg";
-import crossingDown from "../assets/icons/crossing_down.svg";
-// import enteringChannel from "../assets/icons/entering_channel.svg";
-// import exitingChannel from "../assets/icons/exiting_channel.svg";
-import MovingUp from "../assets/icons/MovingUp.svg";
-import MovingDown from "../assets/icons/MovingDown.svg";
-import MovingPercentageUp from "../assets/icons/MovingPercentageUp.svg";
-import MovingPercentageDown from "../assets/icons/MovingPercentageDown.svg";
-
 export const SEO_DATA = {
   home: {
     title:
@@ -1583,45 +1573,3 @@ export const DASHBOARD = {
 };
 
 export const SIGNAL_STRENGTHS = ["Moderate", "Weak", "Strong"];
-
-export const PRICE_ALERT_OPTIONS = [
-  { label: "Crossing", value: "crossing", symbol: crossing },
-  { label: "Crossing Up", value: "crossing_up", symbol: crossingUp },
-  { label: "Crossing Down", value: "crossing_down", symbol: crossingDown },
-  // { label: "Greater Than", value: "greater_than", symbol: ">" },
-  // { label: "Less Than", value: "less_than", symbol: "<" },
-  // {
-  //   label: "Entering Channel",
-  //   value: "entering_channel",
-  //   symbol: enteringChannel,
-  // },
-  // {
-  //   label: "Exiting Channel",
-  //   value: "exiting_channel",
-  //   symbol: exitingChannel,
-  // },
-  // { label: "Inside Channel", value: "inside_channel", symbol: "↕" },
-  // { label: "Outside Channel", value: "outside_channel", symbol: "⋮" },
-  // { label: "Moving Up", value: "moving_up", symbol: MovingUp },
-  // { label: "Moving Down", value: "moving_down", symbol: MovingDown },
-  // {
-  //   label: "Moving Up %",
-  //   value: "moving_up_percent",
-  //   symbol: MovingPercentageUp,
-  // },
-  // {
-  //   label: "Moving Down %",
-  //   value: "moving_down_percent",
-  //   symbol: MovingPercentageDown,
-  // },
-];
-
-export const PRICE_ALERT_INTERVALS = [
-  { label: "3 Minutes", value: "3m" },
-  { label: "5 Minutes", value: "5m" },
-  { label: "10 Minutes", value: "10m" },
-  { label: "15 Minutes", value: "15m" },
-  { label: "30 Minutes", value: "30m" },
-  { label: "1 Hour", value: "1h" },
-  { label: "24 Hours", value: "1D" },
-];

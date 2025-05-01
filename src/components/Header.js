@@ -151,27 +151,23 @@ const UserMenu = () => {
 // Main Header Component
 const Header = () => {
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
-  const [isPricingDropdownOpen, setIsPricingDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { authData, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const moreDropdownRef = useRef(null);
-  const pricingDropdownRef = useRef(null);
-/*   const navigationLinks = [
+  const navigationLinks = [
     { path: "/", label: "Home" },
     { path: "/news", label: "News" },
     { path: "/feature", label: "Feature" },
     { path: "/learning", label: "Learning Platform" },
+    { path: "/pricing", label: "Pricing" },
     { path: "/insights", label: "Hidden Insights" },
-  ]; */
+  ];
   const moreLinks = [
     { path: "/faq", label: "FAQ" },
     { path: "/about-us", label: "About Us" },
   ];
-  const pricingDropdownLinks = [
-    { path: "/pricing/individual", label: "Individual Pricing" },
-    { path: "/pricing/business", label: "Business Pricing" },
-  ];
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -180,139 +176,21 @@ const Header = () => {
       ) {
         setIsMoreDropdownOpen(false);
       }
-      if (
-        pricingDropdownRef.current &&
-        !pricingDropdownRef.current.contains(event.target)
-      ) {
-        setIsPricingDropdownOpen(false);
-      }
     };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-/*   const handleMobileMenuClick = (path) => {
+  const handleMobileMenuClick = (path) => {
     navigate(path);
     setIsMenuOpen(false);
-  }; */
+  };
 
-  /* const handleMoreItemClick = (path) => {
+  const handleMoreItemClick = (path) => {
     navigate(path);
     setIsMoreDropdownOpen(false);
     setIsMenuOpen(false);
-  }; */
-  const handleMoreNavigation = (path) => {
-    setIsMoreDropdownOpen(false);
-    setIsMenuOpen(false);
-    navigate(path);
   };
-
-  const handlePricingNavigation = (path) => {
-    setIsPricingDropdownOpen(false);
-    setIsMenuOpen(false);
-    navigate(path);
-  };
-
-  const DesktopMoreDropdown = () => (
-    <div className="relative inline-block text-left" ref={moreDropdownRef}>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsMoreDropdownOpen(!isMoreDropdownOpen);
-        }}
-        className="group flex items-center space-x-2 text-white 
-            py-1.5 rounded-full"
-      >
-        <span className="lg:text-base xl:text-lg font-gilroy font-normal text-white group-hover:text-purple-400 transition-all duration-300">
-          More
-        </span>
-        <ChevronDown
-          className={`w-3 h-3 sm:w-4 sm:h-4 text-white group-hover:text-purple-400 
-              transition-all duration-300 ease-out
-              ${isMoreDropdownOpen ? "rotate-180" : "rotate-0"}`}
-        />
-      </button>
-
-      {isMoreDropdownOpen && (
-        <div
-          className="absolute right-0 mt-3 w-[200px] rounded-xl 
-              bg-[#AE42FF57] backdrop-blur-lg
-              shadow-2xl shadow-black/20
-              border border-white/10
-              py-1 z-50"
-        >
-          {moreLinks.map((link) => (
-            <button
-              key={link.path}
-              onClick={(e) => {
-                e.stopPropagation(); // Prevent event bubbling
-                handleMoreNavigation(link.path);
-              }}
-              className="flex items-center w-full px-3 py-2.5 text-sm text-white 
-                  hover:bg-white/10 active:bg-white/5
-                  transition-all duration-200 group"
-            >
-              <span className="transform group-hover:translate-x-1 transition-all duration-200">
-                {link.label}
-              </span>
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-
-  const DesktopPricingDropdown = () => (
-    <div className="relative inline-block text-left" ref={pricingDropdownRef}>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsPricingDropdownOpen(!isPricingDropdownOpen);
-        }}
-        className="group flex items-center space-x-2 text-white 
-             py-1.5 rounded-full"
-      >
-        <span className="lg:text-base xl:text-lg font-gilroy font-normal font-medium font-gilroy text-white group-hover:text-purple-400 transition-all duration-300">
-          Pricing
-        </span>
-        <ChevronDown
-          className={`w-3 h-3 sm:w-4 sm:h-4 text-white group-hover:text-purple-400 
-              transition-all duration-300 ease-out
-              ${isPricingDropdownOpen ? "rotate-180" : "rotate-0"}`}
-        />
-      </button>
-
-      {isPricingDropdownOpen && (
-        <div
-          className="absolute right-0 mt-3 w-[200px] rounded-xl 
-              bg-[#AE42FF57] backdrop-blur-lg
-              shadow-2xl shadow-black/20
-              border border-white/10
-              py-1 z-50"
-        >
-          {pricingDropdownLinks.map((link) => (
-            <button
-              key={link.path}
-              onClick={(e) => {
-                e.stopPropagation();
-                handlePricingNavigation(link.path);
-              }}
-              className="flex items-center w-full px-3 py-2.5 text-md text-white 
-                  hover:bg-white/10 active:bg-white/5
-                  transition-all duration-200 group"
-            >
-              <span className="transform group-hover:translate-x-1 transition-all duration-200">
-                {link.label}
-              </span>
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-
   return (
     <div className="bg-customBlack mb-0">
       <div className="relative container">
@@ -330,38 +208,70 @@ const Header = () => {
               </Link>
               {/* Desktop Navigation */}
               <div className="hidden lg:flex items-center lg:gap-4 xl:gap-6">
-                <Link
-                  to="/"
-                  className="text-white lg:text-base xl:text-lg font-gilroy font-normal hover:text-purple-400 transition-opacity"
+                {navigationLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="text-white lg:text-base xl:text-lg font-gilroy font-normal hover:opacity-80 transition-opacity"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+
+                {/* Updated More Dropdown */}
+                <div
+                  className="relative inline-block text-left"
+                  ref={moreDropdownRef}
                 >
-                  Home
-                </Link>
-                <Link
-                  to="/feature"
-                  className="text-white lg:text-base xl:text-lg font-gilroy font-normal hover:text-purple-400 transition-opacity"
-                >
-                  Feature  
-                </Link>
-                <Link
-                  to="/news"
-                  className="text-white lg:text-base xl:text-lg font-gilroy font-normal hover:text-purple-400 transition-opacity"
-                >
-                  News
-                </Link>
-                <Link
-                  to="/learning"
-                  className="text-white lg:text-base xl:text-lg font-gilroy font-normal hover:text-purple-400 transition-opacity"
-                >
-                  Learning Platform
-                </Link>
-                <DesktopPricingDropdown />
-              {/*   <Link
-                  to="/insights"
-                  className="text-white lg:text-base xl:text-lg font-gilroy font-normal hover:text-purple-400 transition-opacity"
-                >
-                  Hidden Insights
-                </Link> */}
-                <DesktopMoreDropdown />
+                  <button
+                    onClick={() => setIsMoreDropdownOpen(!isMoreDropdownOpen)}
+                    className="group flex items-center space-x-2 text-white 
+                             px-2 sm:px-3 py-1.5 rounded-full
+                             bg-white/10 hover:bg-white/15
+                             transition-all duration-300 ease-out
+                             focus:outline-none focus:ring-2 focus:ring-white/20"
+                  >
+                    <span className="text-sm font-medium text-white/90 group-hover:text-white transition-all duration-300">
+                      More
+                    </span>
+                    <ChevronDown
+                      className={`w-3 h-3 sm:w-4 sm:h-4 text-white/80 group-hover:text-white
+                               transition-all duration-300 ease-out
+                               ${
+                                 isMoreDropdownOpen ? "rotate-180" : "rotate-0"
+                               }`}
+                    />
+                  </button>
+
+                  <div
+                    className={`absolute right-0 mt-2 w-[200px] rounded-xl 
+                               bg-[#AE42FF57]  backdrop-blur-lg
+                              shadow-2xl shadow-black/20
+                              transform transition-all duration-200 ease-out origin-top-right z-50
+                              border border-white/10
+                              ${
+                                isMoreDropdownOpen
+                                  ? "translate-y-0 opacity-100 scale-100"
+                                  : "translate-y-2 opacity-0 scale-95 pointer-events-none"
+                              }`}
+                  >
+                    <div className="py-1">
+                      {moreLinks.map((link) => (
+                        <button
+                          key={link.path}
+                          onClick={() => handleMoreItemClick(link.path)}
+                          className="flex items-center w-full px-3 py-2.5 text-sm text-white/80 
+                                   hover:bg-white/10 active:bg-white/5
+                                   transition-all duration-200 group"
+                        >
+                          <span className="transform group-hover:translate-x-1 transition-all duration-200">
+                            {link.label}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Desktop User Menu */}
@@ -424,98 +334,26 @@ const Header = () => {
                     </button>
                   </div>
                   <div className="px-4 py-10 space-y-3">
-                    <Link
-                      to="/"
-                      className="text-white block w-full text-left px-3 py-2 text-base font-gilroy font-normal hover:bg-gray-800/40 rounded-md transition-colors"
-                    >
-                      Home
-                    </Link>
-                    <Link
-                      to="/feature"
-                      className="text-white block w-full text-left px-3 py-2 text-base font-gilroy font-normal hover:bg-gray-800/40 rounded-md transition-colors"
-                    >
-                      Feature
-                    </Link>
-                    <Link
-                      to="/news"
-                      className="text-white block w-full text-left px-3 py-2 text-base font-gilroy font-normal hover:bg-gray-800/40 rounded-md transition-colors"
-                    >
-                      News
-                    </Link>
-                    <Link
-                      to="/learning"
-                      className="text-white block w-full text-left px-3 py-2 text-base font-gilroy font-normal hover:bg-gray-800/40 rounded-md transition-colors"
-                    >
-                      Learning Platform
-                    </Link>
-
-                    <div className="relative">
+                    {navigationLinks.map((link) => (
                       <button
-                        onClick={() =>
-                          setIsPricingDropdownOpen(!isPricingDropdownOpen)
-                        }
-                        className="flex items-center w-full px-4 py-2 text-md font-gilroy text-white rounded-lg transition-colors hover:bg-purple-700"
+                        key={link.path}
+                        onClick={() => handleMobileMenuClick(link.path)}
+                        className="text-white block w-full text-left px-3 py-2 text-base font-gilroy font-normal hover:bg-gray-800/40 rounded-md transition-colors"
                       >
-                        Pricing
-                        <ChevronDown
-                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${
-                            isPricingDropdownOpen ? "rotate-180" : ""
-                          }`}
-                        />
+                        {link.label}
                       </button>
-                      {isPricingDropdownOpen && (
-                        <div className="mt-1 px-2 py-1 bg-purple-900/20 rounded-lg">
-                          {pricingDropdownLinks.map((link) => (
-                            <Link
-                              key={link.path}
-                              to={link.path}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="block px-4 py-2.5 text-md font-gilroy text-white hover:bg-purple-700/50 rounded-lg"
-                            >
-                              {link.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                    ))}
+                    <div className="space-y-1">
+                      {moreLinks.map((link) => (
+                        <button
+                          key={link.path}
+                          onClick={() => handleMobileMenuClick(link.path)}
+                          className="text-white block w-full text-left px-3 py-2 text-base font-gilroy font-normal hover:bg-gray-800/40 rounded-md transition-colors ml-4"
+                        >
+                          {link.label}
+                        </button>
+                      ))}
                     </div>
-
-                   {/*  <Link
-                      to="/insights"
-                      className="text-white block w-full text-left px-3 py-2 text-base font-gilroy font-normal hover:bg-gray-800/40 rounded-md transition-colors"
-                    >
-                      Hidden Insights
-                    </Link> */}
-
-                    <div className="relative">
-                      <button
-                        onClick={() =>
-                          setIsMoreDropdownOpen(!isMoreDropdownOpen)
-                        }
-                        className="flex items-center text-md font-gilroy w-full px-4 py-2 text-gray-300 rounded-lg transition-colors hover:bg-purple-700"
-                      >
-                        Menu
-                        <ChevronDown
-                          className={`ml-1 h-4 w-4 transition-transform duration-200 ${
-                            isMoreDropdownOpen ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                      {isMoreDropdownOpen && (
-                        <div className="mt-1 px-2 py-1 bg-purple-900/20 rounded-lg">
-                          {moreLinks.map((link) => (
-                            <Link
-                              key={link.path}
-                              to={link.path}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="block px-4 py-2.5 text-md font-gilroy text-white hover:bg-purple-700/50 rounded-lg"
-                            >
-                              {link.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
                     {!authData && (
                       <Link
                         to="/login"

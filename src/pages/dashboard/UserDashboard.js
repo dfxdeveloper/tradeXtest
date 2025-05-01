@@ -33,9 +33,7 @@ import MyPlan from "./MyPlan";
 import MarketScreener from "./MarketScreenerV2";
 /* import CustomStrategy from "./CustomStrategyV2"; */
 import CustomStrategy from "./CustomStrategyV3";
-/* import WhatsNewToday from "./WhatsNewToday"; */
 import WhatsNewToday from "./whatsnewtodayV2/WhatsNew";
-
 import SubscriptionRestriction from "../../components/SubscriptionRestriction";
 import localStorageWithExpiry from "../../utils/localstorage";
 
@@ -61,7 +59,6 @@ const UserDashboard = () => {
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
   const [isHeaderOpen, setIsHeaderOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isPricingDropdownOpen, setIsPricingDropdownOpen] = useState(false);
   const { authData, logout } = useContext(AuthContext);
 
   const {
@@ -71,7 +68,6 @@ const UserDashboard = () => {
   } = useUserCredentials();
 
   const moreDropdownRef = useRef(null);
-  const pricingDropdownRef = useRef(null);
   const initialLoader = useRef(true);
   const sidebarRef = useRef(null);
 
@@ -116,12 +112,6 @@ const UserDashboard = () => {
       ) {
         setIsMoreDropdownOpen(false);
       }
-      if (
-      pricingDropdownRef.current &&
-        !pricingDropdownRef.current.contains(event.target)
-      ) {
-        setIsPricingDropdownOpen(false);
-      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -148,20 +138,8 @@ const UserDashboard = () => {
       label: "About Us",
     },
   ];
-
-  const pricingDropdownLinks = [
-    { path: "/pricing/individual", label: "Individual Pricing" },
-    { path: "/pricing/business", label: "Business Pricing" },
-  ];
-
   const handleMoreNavigation = (path) => {
     setIsMoreDropdownOpen(false);
-    setIsHeaderOpen(false);
-    navigate(path);
-  };
-
-  const handlePricingNavigation = (path) => {
-    setIsPricingDropdownOpen(false);
     setIsHeaderOpen(false);
     navigate(path);
   };
@@ -223,21 +201,19 @@ const UserDashboard = () => {
         return <WhatsNewToday />;
 
       case "Market Screener":
-        return <MarketScreener/>
-     /*    return isPlanActive && !needsUpgrade ? (
+        return isPlanActive && !needsUpgrade ? (
           <MarketScreener />
         ) : (
           <SubscriptionRestriction userData={user} />
         );
- */
+
       case "Custom Strategy":
-       return <CustomStrategy/>
-        /* return isPlanActive && !needsUpgrade ? (
+        return isPlanActive && !needsUpgrade ? (
           <CustomStrategy />
         ) : (
           <SubscriptionRestriction userData={user} />
         );
- */
+
       case "Watchlist":
         return <Configuration />;
 
@@ -272,13 +248,16 @@ const UserDashboard = () => {
           setIsMoreDropdownOpen(!isMoreDropdownOpen);
         }}
         className="group flex items-center space-x-2 text-white 
-           py-1.5 rounded-full"
+          px-2 sm:px-3 py-1.5 rounded-full
+          bg-white/10 hover:bg-white/15
+          transition-all duration-300 ease-out
+          focus:outline-none focus:ring-2 focus:ring-white/20"
       >
-        <span className="text-sm font-medium font-gilroy text-white group-hover:text-purple-400 transition-all duration-300">
+        <span className="text-sm font-medium text-white/90 group-hover:text-white transition-all duration-300">
           More
         </span>
         <ChevronDown
-          className={`w-3 h-3 sm:w-4 sm:h-4 text-white group-hover:text-purple-400 
+          className={`w-3 h-3 sm:w-4 sm:h-4 text-white/80 group-hover:text-white
             transition-all duration-300 ease-out
             ${isMoreDropdownOpen ? "rotate-180" : "rotate-0"}`}
         />
@@ -286,7 +265,7 @@ const UserDashboard = () => {
 
       {isMoreDropdownOpen && (
         <div
-          className="absolute right-0 mt-3 w-[200px] rounded-xl 
+          className="absolute right-0 mt-2 w-[200px] rounded-xl 
             bg-[#AE42FF57] backdrop-blur-lg
             shadow-2xl shadow-black/20
             border border-white/10
@@ -313,54 +292,6 @@ const UserDashboard = () => {
     </div>
   );
 
-  const DesktopPricingDropdown = () => (
-    <div className="relative inline-block text-left" ref={pricingDropdownRef}>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setIsPricingDropdownOpen(!isPricingDropdownOpen);
-        }}
-        className="group flex items-center space-x-2 text-white 
-         py-1.5 rounded-full"
-      >
-        <span className="text-sm font-medium font-gilroy text-white group-hover:text-purple-400 transition-all duration-300">
-        Pricing
-        </span>
-        <ChevronDown
-          className={`w-3 h-3 sm:w-4 sm:h-4 text-white group-hover:text-purple-400 
-            transition-all duration-300 ease-out
-            ${isPricingDropdownOpen ? "rotate-180" : "rotate-0"}`}
-        />
-      </button>
-
-      {isPricingDropdownOpen && (
-        <div
-          className="absolute right-0 mt-3 w-[200px] rounded-xl 
-            bg-[#AE42FF57] backdrop-blur-lg
-            shadow-2xl shadow-black/20
-            border border-white/10
-            py-1 z-50"
-        >
-          {pricingDropdownLinks.map((link) => (
-            <button
-              key={link.path}
-              onClick={(e) => {
-                e.stopPropagation();
-                handlePricingNavigation(link.path);
-              }}
-              className="flex items-center w-full px-3 py-2.5 text-sm text-white/80 
-                hover:bg-white/10 active:bg-white/5
-                transition-all duration-200 group"
-            >
-              <span className="transform group-hover:translate-x-1 transition-all duration-200">
-                {link.label}
-              </span>
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
   return (
     <>
       <div className="h-screen flex dashboard_bg">
@@ -618,16 +549,16 @@ const UserDashboard = () => {
                   Home
                 </Link>
                 <Link
-                  to="/feature"
-                  className="text-md text-white font-gilroy hover:text-purple-400 transition-colors"
-                >
-                  Feature
-                </Link>
-                <Link
                   to="/news"
                   className="text-md text-white font-gilroy hover:text-purple-400 transition-colors"
                 >
                   News
+                </Link>
+                <Link
+                  to="/feature"
+                  className="text-md text-white font-gilroy hover:text-purple-400 transition-colors"
+                >
+                  Feature
                 </Link>
                 <Link
                   to="/learningplatform"
@@ -635,14 +566,18 @@ const UserDashboard = () => {
                 >
                   Learning Platform
                 </Link>
-            <DesktopPricingDropdown/>
-
-                {/* <Link
+                <Link
+                  to="/pricing"
+                  className="text-md text-white font-gilroy hover:text-purple-400 transition-colors"
+                >
+                  Pricing
+                </Link>
+                <Link
                   to="/hiddeninsights"
                   className="text-md text-white font-gilroy hover:text-purple-400 transition-colors"
                 >
                   Hidden Insights
-                </Link> */}
+                </Link>
 
                 <DesktopMoreDropdown />
               </nav>
@@ -702,16 +637,16 @@ const UserDashboard = () => {
                 Home
               </Link>
               <Link
-                to="/feature"
-                className="flex items-center w-full px-4 py-2 text-sm text-gray-300 rounded-lg transition-colors hover:bg-purple-700"
-              >
-                Feature
-              </Link>
-              <Link
                 to="/news"
                 className="flex items-center w-full px-4 py-2 text-sm text-gray-300 rounded-lg transition-colors hover:bg-purple-700"
               >
                 News
+              </Link>
+              <Link
+                to="/feature"
+                className="flex items-center w-full px-4 py-2 text-sm text-gray-300 rounded-lg transition-colors hover:bg-purple-700"
+              >
+                Feature
               </Link>
               <Link
                 to="/learningplatform"
@@ -719,68 +654,47 @@ const UserDashboard = () => {
               >
                 Learning Platform
               </Link>
-              <div className="relative">
-                <button
-                  onClick={() =>
-                    setIsPricingDropdownOpen(!isPricingDropdownOpen)
-                  }
-                  className="flex items-center w-full px-4 py-2 text-sm text-gray-300 rounded-lg transition-colors hover:bg-purple-700"
-                >
-                  Pricing
-                  <ChevronDown
-                    className={`ml-1 h-4 w-4 transition-transform duration-200 ${
-                      isPricingDropdownOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {isPricingDropdownOpen && (
-                  <div className="mt-1 px-2 py-1 bg-purple-900/20 rounded-lg">
-                    {pricingDropdownLinks.map((link) => (
-                      <Link
-                        key={link.path}
-                        to={link.path}
-                        onClick={() => setIsHeaderOpen(false)}
-                        className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-purple-700/50 rounded-lg"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* <Link
+              <Link
+                to="/pricing"
+                className="flex items-center w-full px-4 py-2 text-sm text-gray-300 rounded-lg transition-colors hover:bg-purple-700"
+              >
+                Pricing
+              </Link>
+              <Link
                 to="/hiddeninsights"
                 className="flex items-center w-full px-4 py-2 text-sm text-gray-300 rounded-lg transition-colors hover:bg-purple-700"
               >
                 Hidden Insights
-              </Link> */}
+              </Link>
               {/* More dropdown section */}
-              <div className="relative">
+              <div className="relative" ref={moreDropdownRef}>
                 <button
-                  onClick={() =>
-                    setIsMoreDropdownOpen(!isMoreDropdownOpen)
-                  }
-                  className="flex items-center w-full px-4 py-2 text-sm text-gray-300 rounded-lg transition-colors hover:bg-purple-700"
+                  onClick={() => setIsMoreDropdownOpen(!isMoreDropdownOpen)}
+                  className="flex items-center justify-between w-full px-4 py-2 text-sm text-gray-300 rounded-lg transition-colors hover:bg-purple-700"
                 >
-                  Pricing
+                  More
                   <ChevronDown
                     className={`ml-1 h-4 w-4 transition-transform duration-200 ${
                       isMoreDropdownOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
+
                 {isMoreDropdownOpen && (
                   <div className="mt-1 px-2 py-1 bg-purple-900/20 rounded-lg">
                     {moreLinks.map((link) => (
-                      <Link
+                      <button
                         key={link.path}
-                        to={link.path}
-                        onClick={() => setIsHeaderOpen(false)}
-                        className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-purple-700/50 rounded-lg"
+                        onClick={() => {
+                          handleMoreNavigation(link.path);
+                          setIsHeaderOpen(false);
+                        }}
+                        className="flex items-center w-full px-4 py-2.5 text-sm text-gray-300 
+                      rounded-lg transition-colors hover:bg-purple-700/50 hover:text-white
+                      active:bg-purple-700/70"
                       >
                         {link.label}
-                      </Link>
+                      </button>
                     ))}
                   </div>
                 )}
