@@ -33,7 +33,9 @@ import MyPlan from "./MyPlan";
 import MarketScreener from "./MarketScreenerV2";
 /* import CustomStrategy from "./CustomStrategyV2"; */
 import CustomStrategy from "./CustomStrategyV3";
-import WhatsNewToday from "./WhatsNewToday";
+/* import WhatsNewToday from "./WhatsNewToday"; */
+import WhatsNewToday from "./whatsnewtodayV2/WhatsNew";
+
 import SubscriptionRestriction from "../../components/SubscriptionRestriction";
 import localStorageWithExpiry from "../../utils/localstorage";
 
