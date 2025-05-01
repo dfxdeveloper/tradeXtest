@@ -24,8 +24,8 @@ const Feature = lazy(() => import("./pages/feature/Feature"));
 const StrategyCategoryList = lazy(() =>
   import("./pages/dashboard/strategy/StrategyCategoryList")
 );
-const WhatsNewToday = lazy(() => import("./pages/dashboard/WhatsNewToday"));
-/* const WhatsNewToday = lazy(() => import("./pages/dashboard/whatsnewtodayV2/WhatsNew")); */
+/* const WhatsNewToday = lazy(() => import("./pages/dashboard/WhatsNewToday")); */
+const WhatsNewToday = lazy(() => import("./pages/dashboard/whatsnewtodayV2/WhatsNew"));
 const MarketScreener = lazy(() => import("./pages/dashboard/MarketScreenerV2"));
 /* const CustomStrategy = lazy(() => import("./pages/dashboard/CustomStrategyV2")); */
 const Strategy = lazy(() => import("./pages/dashboard/strategy/Strategy"));
